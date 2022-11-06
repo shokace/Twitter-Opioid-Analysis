@@ -1,6 +1,9 @@
 import pip._vendor.requests as requests
 import os
 import json
+import pandas as pd
+from textblob import TextBlob
+
 
 # To set your environment variables in your terminal run the following line:
 # export 'BEARER_TOKEN'='<your_bearer_token>'
@@ -24,18 +27,44 @@ def bearer_oauth(r):
     r.headers["User-Agent"] = "v2FullArchiveSearchPython"
     return r
 
+
 def connect_to_endpoint(url, params):
-    response = requests.get(url, auth=bearer_oauth, params=params)
-    print(response.status_code)
-    if response.status_code != 200:
-        raise Exception(response.status_code, response.text)
-    return response.json()
+    global response
+    response = requests.get(url, auth=bearer_oauth, params=params).json()
+    # print(response.status_code)
+    # if response.status_code != 200:
+    #     raise Exception(response.status_code, response.text)
+    # return response.json()
 
 
 def main():
     json_response = connect_to_endpoint(search_url, query_params)
-    print(json.dumps(json_response, indent=4, sort_keys=True))
+    #print(json.dumps(json_response, indent=4, sort_keys=True))
+    df = pd.DataFrame(response['data'])
+    sentences = df['text']
+    
+
+    for sentence in sentences:
+        analysis = TextBlob(sentence)
+        
+         
+    df['Sentiment'] = analysis.sentiment.polarity
+    df.to_csv('response_python.csv') 
+      
+    
+        
+        
+       
+
+
 
 
 if __name__ == "__main__":
     main()
+
+
+
+# Turn data into dataframes with pandas CHECK
+# Read text from dataframe and classify by sentiment CHECK
+# Insert senitment into dataframe 
+# Plot data on a bar chart 
