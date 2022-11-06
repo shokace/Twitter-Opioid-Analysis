@@ -42,13 +42,14 @@ def main():
     #print(json.dumps(json_response, indent=4, sort_keys=True))
     df = pd.DataFrame(response['data'])
     sentences = df['text']
+    sentimentList = []
     
 
     for sentence in sentences:
-        analysis = TextBlob(sentence)
+        sentimentList.append(TextBlob(sentence).sentiment.polarity)
         
          
-    df['Sentiment'] = analysis.sentiment.polarity
+    df['Sentiment'] = sentimentList
     df.to_csv('response_python.csv') 
       
     
