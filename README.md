@@ -9,7 +9,7 @@ Program Use
 
 		Excluding  python, make sure to have the following libraries installed:
 Requests
-Json
+JSON
 Pandas
 textblob
 
@@ -23,5 +23,5 @@ produced by the API call. This will also be used to give us infographics to the 
 
 Textblob is used to analyze our data to the core information, producing us with results. These results will then be graphed using Pandas as explained above.
 
-After installation of the required libraries, you will simply run the program using
-either your preferred IDE or command line. After extracting the folder from GitHub, running the script “Parser.py” will create a pdf in the current working directory called “chart.pdf” with metrics on the result, followed by more data in a csv file called “response_python.csv” with more metrics underneath in more or less plain text.
+	After installation of the required libraries, you will simply run the program using
+	either your preferred IDE or command line. After extracting the folder from GitHub, running the script “Parser.py” will create a pdf in the current 	    working directory called “chart.pdf” with metrics on the result, followed by more data in a csv file called “response_python.csv” with more metrics 	underneath in more or less plain text.
