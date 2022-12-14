@@ -2,7 +2,8 @@
 
 Program Use
 
-	Using the script we created requires python 3.x, using libraries necessary to build. Code will be published by the time this project is submitted.
+	Using the script we created requires python 3.x, using libraries necessary to build. 
+	Code will be published by the time this project is submitted.
 
 
 	Code Reasoning and Prerequisites
