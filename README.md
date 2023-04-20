@@ -1,4 +1,4 @@
-# CSC665---Twitter-Opioid-Analysis
+#Twitter-Opioid-Analysis
 
 Program Use
 
